@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: notification_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: engine_user
+      POSTGRES_PASSWORD: engine_password
+      POSTGRES_DB: notification_engine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
